@@ -1,0 +1,28 @@
+{
+  "name": "archeage_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/bot.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "prod": "tsc",
+    "dev": "nodemon dist/bot.js"
+  },
+  "keywords": [
+    "archeage",
+    "unchained",
+    "discord"
+  ],
+  "author": "zoukidev",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^14.11.10",
+    "nodemon": "^2.0.5",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0"
+  }
+}
