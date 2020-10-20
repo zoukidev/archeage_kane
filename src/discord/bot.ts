@@ -1,4 +1,5 @@
 import * as Discord from 'discord.js';
+import CommandManager from "../manager/command";
 
 export default class DiscordBot {
     static instance: Discord.Client;
@@ -19,8 +20,9 @@ export default class DiscordBot {
 
         DiscordBot.instance.on('message', (message: Discord.Message) => {
             if (message.channel.id == DiscordBot.channel) {
-                console.log(`${message.author.username}: ${message.content}`);
-                message.delete();
+                CommandManager.exec(message);
+                // console.log(`${message.author.username}: ${message.content}`);
+                // message.delete();
             }
         });
     }
