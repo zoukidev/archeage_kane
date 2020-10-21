@@ -10,15 +10,16 @@ export default class CommandManager {
     }
 
     static exec(message: Discord.Message) {
-        let strCommand = message.content.split(' ')[0].substr(1);
+        if (message.author.username !== 'ArcheAge Kane') {
+            let strCommand = message.content.split(' ')[0].substr(1);
 
-        let command: CommandModel = (CommandManager.commands).filter((command: any) => command.command == strCommand)[0];
-        if (command) {
-            console.log(command);
-        } else {
-            message.reply('command "' + strCommand + '" not found!');
+            let command: CommandModel = (CommandManager.commands).filter((command: any) => command.command == strCommand)[0];
+            if (command) {
+                command.exec(message);
+            } else {
+                message.channel.send('command "' + strCommand + '" not found!');
+                message.delete();
+            }
         }
-
-        message.delete();
     }
 }
